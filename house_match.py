@@ -12,10 +12,15 @@ def sort_houses_by_niceness(house_list):
 
 
 def stable_match(renters, houses, increment = 1.05):
-    """Gale-Shapley stable matching algorithm.
-    In each round, renters (in random order) bid their maximum WTP for their most preferred house. All bids exceeding the
-    asking price are accepted. If a higher bid is offered, the current renter is evicted.
+    """Gale-Shapley stable matching algorithm:
+    In each round, renters bid for their most preferred house. All bids exceeding the
+    asking price are accepted. If a higher bid is offered, previous renter is kicked out.
     In subsequent rounds, all unmatched renters proceed as before. This continues until all renters are matched.
+
+    We make the simplifying assumption that all renters share the same preferences for houses.
+    We also assume that renters want the highest-quality house with price below their maximum
+    willingness to pay.
+
     Houses should be ordered from highest to lowest scores."""
 
     houses = sort_houses_by_niceness(houses)
