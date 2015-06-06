@@ -2,7 +2,6 @@
 # Goal: Create a matching function for renters and houses
 # Created on: 6/6/15
 # Created by: Jean-Ezra Yeung
-# Matching by: Phil Nova
 
 # Outline
 # 1. Objects - Generate 2 lists: renters, houses
@@ -67,12 +66,13 @@ def stable_match(renters, houses):
     In each round, renters (in random order) bid their maximum WTP for their most preferred house. All bids exceeding the
     asking price are accepted. If a higher bid is offered, the current renter is evicted.
     In subsequent rounds, all unmatched renters proceed as before. This continues until all renters are matched."""
-    
+
     while True:
+
         flag = False #keep track of whether any houses changed hands
 
         #randomize order of renters
-        random.shuffle(renters)
+        #random.shuffle(renters)
         for r in renters:
             if not r.get_matched():
                 for house_index in r.housing_preference_list:
@@ -87,6 +87,7 @@ def stable_match(renters, houses):
                         r.set_matched() #renter moves in
                         house.set_occupied(r.willingness_to_pay, r.ID)
                         flag = True
+                        break
 
         if not flag: #no houses changed hands; we are done
             return 
@@ -97,7 +98,7 @@ def stable_match(renters, houses):
 def create_test(n_renters):
     #create lots of houses with same price: $100
     house_list = [House(100,1,1) for dummy in range(n_renters)]
-    renter_list = [Renter(100+dummy,1,1,dummy) for dummy in range(n_renters)]
+    renter_list = [Renter(110-dummy,1,1,dummy) for dummy in range(n_renters)]
     for r in renter_list:
         r.order_houses_test(house_list)
         #print r.ID
