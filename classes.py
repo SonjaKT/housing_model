@@ -22,6 +22,21 @@ class House(object):
         self.__occupied = False
         self.rented_by = None
 
+    def __lt__(self, other):
+        return self.niceness < other.niceness
+
+    def __gt__(self, other):
+        return self.niceness > other.niceness
+
+    def __le__(self, other):
+        return self.niceness <= other.niceness
+
+    def __ge__(self, other):
+        return self.niceness >= other.niceness
+
+    def __eq__(self, other):
+        return self.niceness == other.niceness
+
     def get_occupied(self):
         return self.__occupied
 
