@@ -18,7 +18,6 @@ class Renter(object):
     def set_matched(self, matched = True):
         self.__matched = matched
 
-
     def order_houses_test(self, house_list):
         self.housing_preference_list = range(len(house_list))
 
@@ -50,7 +49,7 @@ def stable_match(renters, houses, increment = 1.05):
 
         for r in renters:
             if not r.get_matched():
-                for house in houses:
+                for house in houses: #must be ordered by quality!
                     if r.willingness_to_pay > house.current_price * increment:
                         #either house is unoccupied or renter outbids current occupant
 
@@ -66,7 +65,6 @@ def stable_match(renters, houses, increment = 1.05):
 
         if not flag: #no houses changed hands; we are done
             return 
-
 
 
 ###TEST FUNCTIONS
