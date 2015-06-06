@@ -3,7 +3,6 @@
 # Created by: Phil Nova
 
 import random
-
 from classes import *
 
 def stable_match(renters, houses, increment = 1.05):
