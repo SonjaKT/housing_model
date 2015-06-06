@@ -1,0 +1,16 @@
+class house(object):
+	def __init__(self, niceness): 
+		self.niceness = niceness
+		self.occupant = []
+	def move_in(self, renter):
+		if self.niceness >= renter.standard and (len(self.occupant) == 0 or renter.rent >= self.occupant[0].rent):
+				if len(self.occupant) == 0: self.occupant.append(renter)
+				else: self.occupant[0] = renter
+		else:
+			pass
+
+class renter(object):
+	def __init__(self, rent, standard):
+		self.rent = rent
+		self.standard = standard
+
