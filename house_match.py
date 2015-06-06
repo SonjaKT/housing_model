@@ -49,7 +49,7 @@ def stable_match(renters, houses, increment = 1.05):
 def create_test(n_renters):
     #create lots of houses with same price: $100
     house_list = [House(dummy) for dummy in range(n_renters)]
-    renter_list = [Renter(150-dummy,dummy) for dummy in range(n_renters)]
+    renter_list = [Renter(1000-dummy*10,dummy) for dummy in range(n_renters)]
     for r in renter_list:
         r.order_houses_test(house_list)
         #print r.ID
