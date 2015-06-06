@@ -18,21 +18,17 @@ def create_houses(n_houses, mean_quality = 100, sd = 10):
 	return house_list
 
 renters = create_renters(50)
-houses = house_match.sort_houses_by_niceness(create_houses(40))
+houses = create_houses(30)
 
-house_match.stable_match(renters, houses)
+houses.extend(create_houses(10, 120, 10))
+renters.extend(create_renters(5, 1500))
 
-for house in houses:
-        print house.niceness, renters[house.rented_by].willingness_to_pay, renters[house.rented_by].paying
-
-
-houses.extend(create_houses(10, 150, 10))
 houses = house_match.sort_houses_by_niceness(houses)
 
-print " "
-print " "
-
 house_match.stable_match(renters, houses)
 
 for house in houses:
         print house.niceness, renters[house.rented_by].willingness_to_pay, renters[house.rented_by].paying
+
+
+
