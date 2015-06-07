@@ -1,25 +1,22 @@
 class Renter(object):
+
     def __init__(self, willingness_to_pay, ID):
         self.ID = ID #integer representing order in an array
         self.willingness_to_pay = willingness_to_pay
         self.paying = 0
         self.housing_preference_list = []
-        self.__matched = False
+        self.matched = False
+        self.renting = None # house object
 
-    def get_matched(self):
-        return self.__matched
-
-    def set_matched(self, matched = True):
-        self.__matched = matched
-
-    def order_houses_test(self, house_list):
-        self.housing_preference_list = range(len(house_list))
+    def set_matched(self, house=None, matched=True):
+        self.matched = matched
+        self.renting = house # house object
 
 class House(object):
     def __init__(self, niceness):
         self.current_price = 100
         self.niceness = niceness
-        self.__occupied = False
+        self.occupied = False
         self.rented_by = None
 
     #override comparison operators so we can do sorting
@@ -34,11 +31,7 @@ class House(object):
     def __eq__(self, other):
         return self.niceness == other.niceness
 
-    def get_occupied(self):
-        return self.__occupied
-
     def set_occupied(self, rented_by, occupied = True, auction_increment = 1.05):
-        self.current_price = self.current_price * auction_increment
-        self.rented_by = rented_by #integer ID of renter
-        self.__occupied = True
-
+        self.current_price = int(self.current_price * auction_increment)
+        self.rented_by = rented_by # renter object
+        self.occupied = True
