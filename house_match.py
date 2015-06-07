@@ -10,7 +10,6 @@ def sort_houses_by_niceness(house_list):
     bl = sorting.BasicList(house_list)
     return bl.merge_sort()[::-1] #from most to least nice
 
-
 def stable_match(renters, houses, increment = 1.05):
     """Gale-Shapley stable matching algorithm:
     In each round, renters bid for their most preferred house. All bids exceeding the
