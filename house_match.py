@@ -7,11 +7,11 @@ from classes import *
 import sorting
 import random
 
-def sort_houses_by_niceness(house_list):
+def sort_houses_by_score(house_list):
     bl = sorting.BasicList(house_list)
     return bl.merge_sort()[::-1] #from most to least nice
 
-def stable_match(renters, houses, increment = 1.05, k = 10):
+def stable_match(renters, houses, increment = 1.05, k = 20):
     """
     Gale-Shapley stable matching algorithm:
     In each round, renters bid for their most preferred house. All bids exceeding the
@@ -26,7 +26,7 @@ def stable_match(renters, houses, increment = 1.05, k = 10):
     k is the number of randomly selected apartments each renter considers
     """
 
-    houses = sort_houses_by_niceness(houses)
+    houses = sort_houses_by_score(houses)
 
     while True:
 
@@ -35,7 +35,7 @@ def stable_match(renters, houses, increment = 1.05, k = 10):
         for r in renters:
             if not r.matched:
                 for house in sorted(random.sample(houses, k), reverse=True):
-                    if r.willingness_to_pay > house.current_price * increment:
+                    if house.score >= r.min_score  and r.willingness_to_pay > house.current_price * increment:
                         #either house is unoccupied or renter outbids current occupant
 
                         if house.rented_by != None: #someone was already in apartment
