@@ -52,9 +52,9 @@ def simulate(num_renters=1500,
         dic = {'max_rent': renter.willingness_to_pay,
                'min_score': renter.min_score, 'rent': renter.paying,
                'apt_score': (renter.renting.score if renter.matched else None)}
+        # print dic
         dw.writerow(dic)
     f.close()
-    # print dic
     # print np.mean([r.paying for r in renters if r.matched])
     # print np.median([r.paying for r in renters if r.matched])
 
