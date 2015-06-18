@@ -2,6 +2,8 @@
 
 This is an agent based model of the housing market. It is made to demonstrate the effect of adding high-end housing units on the number and demographics of renters displaced.
 
+Here is a presentation of the model: https://docs.google.com/file/d/0B6FpfcltJScFaFdrS3FMRWlXanc/edit
+
 ## How it works
 
 ## Agents, Mechanics of Model
