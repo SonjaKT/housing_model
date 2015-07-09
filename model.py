@@ -32,7 +32,7 @@ class HousingModel(object):
             dic = {'max_rent': renter.willingness_to_pay,
                    'min_score': renter.min_score, 'rent': renter.paying,
                    'apt_score': (renter.renting.score if renter.matched
-                                 else None)}
+                                 else 'Null')}
             if dict_writer:
                 dict_writer.writerow(dic)
             else:
