@@ -4,7 +4,7 @@ This is an agent based model of the housing market. It is made to demonstrate th
 
 Here is a presentation of the model: https://docs.google.com/file/d/0B6FpfcltJScFaFdrS3FMRWlXanc/edit
 
-## Run it
+## Getting started
 
 Make sure you have [python](https://www.python.org/downloads/) and [git](https://help.github.com/articles/set-up-git/)
 
