@@ -4,6 +4,27 @@ This is an agent based model of the housing market. It is made to demonstrate th
 
 Here is a presentation of the model: https://docs.google.com/file/d/0B6FpfcltJScFaFdrS3FMRWlXanc/edit
 
+## Getting started
+
+Make sure you have [python](https://www.python.org/downloads/) and [git](https://help.github.com/articles/set-up-git/)
+
+In terminal:
+
+```
+> git clone https://github.com/SonjaKT/housing_model.git
+> cd housing_model/
+> python simulate.py
+
+```
+Enter the number of renters and housing units at each of the 5 levels for your model. Note that, for now, there must be more people than houses for each level.
+```
+input number of renters with minimum housing score 1: 10
+input number of renters with minimum housing score 2: 15
+ ...etc
+```
+The model will match the renters to units. This may take a minute or two, especially when modeling 1000s of renters and units. Smaller numbers of renters and units will finish more quickly.
+
+
 ## How it works
 
 ## Agents, Mechanics of Model
