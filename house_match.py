@@ -23,6 +23,7 @@ def stable_match(renters, houses, increment=1.05, k=20):
     increment is how much a potential renter must outbid the previous highest
     k is the number of randomly selected apartments each renter considers.
     """
+    k = min(k, len(houses))
     while True:
         flag = False  # keep track of whether any houses changed hands
         for r in renters:
