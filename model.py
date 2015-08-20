@@ -4,14 +4,13 @@ import math
 import numpy as np
 import house_match as hm
 import csv
-import generators as gen
 
 
 class HousingModel(object):
 
-    def __init__(self, renter_min_scores, house_scores):
-        self.houses = gen.generate_houses(house_scores)
-        self.renters = gen.generate_renters(renter_min_scores)
+    def __init__(self, renters, housing_units):
+        self.renters = renters
+        self.houses = housing_units
         hm.stable_match(self.renters, self.houses)
 
     def mean_rent(self):
