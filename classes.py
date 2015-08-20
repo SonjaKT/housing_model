@@ -28,7 +28,7 @@ class Renter(object):
             housing_unit: a HousingUnit object (defined below).
         
         Returns:
-            A score in the range (-10, 10).
+            An arbitrary score for sorting.
         """
         score = self.cbd_pref * housing_unit.cbd_prox
         score += self.new_pref * housing_unit.newness
